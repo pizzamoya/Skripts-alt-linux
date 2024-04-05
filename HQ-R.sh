@@ -17,7 +17,7 @@ mkdir /etc/net/ifaces/enp0s8
 mkdir /etc/net/ifaces/enp0s9
  
 cp /etc/net/ifaces/enp0s3/options /etc/net/ifaces/enp0s8/options
-cp /etc/net/ifaces/enp0s3/options /etc/net/ifaces/enp0s3/options
+cp /etc/net/ifaces/enp0s3/options /etc/net/ifaces/enp0s9/options
  
 echo 11.11.11.11/24 > /etc/net/ifaces/enp0s3/ipv4address
 echo 192.168.100.62/26 > /etc/net/ifaces/enp0s8/ipv4address
