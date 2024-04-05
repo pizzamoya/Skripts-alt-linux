@@ -23,7 +23,7 @@ echo 192.168.200.14/28 > /etc/net/ifaces/enp0s9/ipv4address
 echo 2001:22::22/64 > /etc/net/ifaces/enp0s8/ipv6address
 echo 2000:200::f/122 > /etc/net/ifaces/enp0s9/ipv6address
 echo default via 22.22.22.1 > /etc/net/ifaces/enp0s8/ipv4route
-echo default via 2001:22::1 > /etc/net/ifaces/enp0s3/ipv6route  
+echo default via 2001:22::1 > /etc/net/ifaces/enp0s9/ipv6route  
  
 sed -i '10a\net.ipv6.conf.all.forwarding = 1' /etc/net/sysctl.conf
 sed -i 's/net.ipv4.ip_forward = 0/net.ipv4.ip_forward = 1/g' /etc/net/sysctl.conf
