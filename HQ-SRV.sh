@@ -226,18 +226,20 @@ EOF
 
 systemctl enable --now chronyd
 
+apt-get install -y task-samba-dc
+
 control bind-chroot disabled
 
 grep -q 'bind-dns' /etc/bind/named.conf || echo 'include "/var/lib/samba/bind-dns/named.conf";' >> /etc/bind/named.conf
 
-sed -i '8a\tkey-gssapi-keytab "/var/lib/samba/bind-dns/dns.keytab";' /etc/bind/options.conf
-sed -i '9a\minimal-responses yes;' /etc/bind/options.conf
-sed -i '91a\category lame-servers {null;};' /etc/bind/options.conf
+sed -i '8a\	tkey-gssapi-keytab "/var/lib/samba/bind-dns/dns.keytab";' /etc/bind/options.conf
+sed -i '9a\	minimal-responses yes;' /etc/bind/options.conf
+sed -i '91a\	category lame-servers {null;};' /etc/bind/options.conf
 systemctl stop bind
 
 sed -i 's/HOSTNAME=ISP/HOSTNAME=hq-srv.demo.first/g' /etc/sysconfig/network
 
-hostnamectl set-hostname hq-srv.demo.first; exec bash
+hostnamectl set-hostname hq-srv.demo.first
 domainname demo.first
 
 rm -f /etc/samba/smb.conf
@@ -249,6 +251,7 @@ samba-tool domain provision --realm=demo.first --domain=demo --adminpass='P@ssw0
 
 systemctl enable --now samba
 systemctl enable --now bind
+rm -rf /etc/krb5.conf
 cp /var/lib/samba/private/krb5.conf /etc/krb5.conf
 
 samba-tool domain info 127.0.0.1
