@@ -35,9 +35,7 @@ systemctl restart network
  
 resolvconf -u
 echo "nameserver 77.88.8.8" >> /etc/resolv.conf
-apt-get update && apt-get install -y firewalld
-apt-get update && apt-get install -y frr
-apt-get update && apt-get install -y dhcp-server
+apt-get update && apt-get install -y firewalld  frr dhcp-server
 
 systemctl enable --now firewalld
 firewall-cmd --permanent --zone=public --add-interface=enp0s3
