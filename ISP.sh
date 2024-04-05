@@ -19,8 +19,8 @@ sed -i '5a\IPV6_CONFIG=yes' /etc/net/ifaces/enp0s8/options
 cp /etc/net/ifaces/ens19/options /etc/net/ifaces/enp0s9/options
 cp /etc/net/ifaces/ens19/options /etc/net/ifaces/enp0s10/options
  
-echo 10.0.54.20/24 > /etc/net/ifaces/enp0s3/ipv4address
-echo "default via 10.0.54.1" > /etc/net/ifaces/enp0s3/ipv4route
+echo 10.0.2.15/24 > /etc/net/ifaces/enp0s3/ipv4address
+echo "default via 10.0.2.15" > /etc/net/ifaces/enp0s3/ipv4route
 echo 11.11.11.1/24 > /etc/net/ifaces/enp0s8/ipv4address
 echo 22.22.22.1/24 > /etc/net/ifaces/enp0s9/ipv4address
 echo 33.33.33.1/24 > /etc/net/ifaces/enp0s10/ipv4address
